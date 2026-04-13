@@ -4,146 +4,292 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>동국대 체교과 실기 기록</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 :root{
   --red:#D4341A;--orange:#E8621A;--yellow:#F5A623;--dark:#C44B0F;
-  --text:#1a1a1a;--subtext:#888;--bg:#f7f3f0;--white:#ffffff;
+  --text:#1a1a1a;--subtext:#888;--bg:#f7f3f0;--white:#fff;
   --shadow:0 4px 24px rgba(0,0,0,0.08);
   --c1:#C44B0F;--c2:#D4341A;--c3:#E8621A;--c4:#F5A623;
 }
 html{background:#e8e0d8;}
-body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(--bg);min-height:100vh;max-width:480px;margin:0 auto;box-shadow:0 0 60px rgba(0,0,0,0.10);}
+body{
+  font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;
+  background:var(--bg);min-height:100vh;
+  max-width:480px;margin:0 auto;
+  box-shadow:0 0 60px rgba(0,0,0,0.10);
+}
 
 /* ── HEADER ── */
-.header{background:linear-gradient(135deg,var(--dark) 0%,var(--red) 50%,var(--orange) 100%);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden;}
-.header::before{content:'';position:absolute;width:200px;height:200px;background:rgba(255,255,255,0.05);border-radius:50%;top:-60px;right:-40px;}
-.header::after{content:'';position:absolute;width:140px;height:140px;background:rgba(255,255,255,0.05);border-radius:50%;bottom:-40px;left:-20px;}
-.header-logo-box{display:inline-block;background:#fff;border-radius:16px;padding:10px 20px;margin-bottom:16px;box-shadow:0 4px 16px rgba(0,0,0,0.18);position:relative;z-index:1;}
-.header-logo-box img{height:52px;display:block;object-fit:contain;}
-.header-univ{color:rgba(255,255,255,0.85);font-size:13px;letter-spacing:0.5px;margin-bottom:8px;position:relative;z-index:1;}
-.header-name{color:#fff;font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px;position:relative;z-index:1;}
-.header-info{color:rgba(255,255,255,0.8);font-size:14px;margin-bottom:12px;position:relative;z-index:1;}
-.header-badge{display:inline-block;background:rgba(255,255,255,0.2);color:#fff;font-size:13px;font-weight:600;padding:5px 16px;border-radius:50px;border:1px solid rgba(255,255,255,0.35);position:relative;z-index:1;}
+.header{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--red) 50%,var(--orange) 100%);
+  padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden;
+}
+.header::before{
+  content:'';position:absolute;width:200px;height:200px;
+  background:rgba(255,255,255,0.05);border-radius:50%;top:-60px;right:-40px;
+}
+.header::after{
+  content:'';position:absolute;width:140px;height:140px;
+  background:rgba(255,255,255,0.05);border-radius:50%;bottom:-40px;left:-20px;
+}
+.header-logo-box{
+  display:inline-block;background:#fff;border-radius:16px;
+  padding:10px 22px;margin-bottom:16px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.18);position:relative;z-index:1;
+}
+.header-logo-box img{height:48px;display:block;object-fit:contain;}
+.header-logo-text{
+  font-size:16px;font-weight:900;color:var(--red);letter-spacing:1px;
+}
+.header-univ{
+  color:rgba(255,255,255,0.85);font-size:13px;
+  letter-spacing:0.5px;margin-bottom:8px;position:relative;z-index:1;
+}
+.header-name{
+  color:#fff;font-size:30px;font-weight:900;
+  letter-spacing:-0.5px;margin-bottom:6px;position:relative;z-index:1;
+}
+.header-info{
+  color:rgba(255,255,255,0.8);font-size:14px;
+  margin-bottom:12px;position:relative;z-index:1;
+}
+.header-badge{
+  display:inline-block;background:rgba(255,255,255,0.2);
+  color:#fff;font-size:13px;font-weight:600;
+  padding:5px 18px;border-radius:50px;
+  border:1px solid rgba(255,255,255,0.35);
+  position:relative;z-index:1;
+}
 
-/* ── TOTAL SCORE ── */
-.total-card{margin:20px 16px 0;background:var(--white);border-radius:20px;padding:20px;box-shadow:var(--shadow);border-top:4px solid var(--red);}
-.total-row{display:flex;align-items:center;justify-content:space-between;}
-.total-label{font-size:13px;color:var(--subtext);font-weight:500;}
-.total-score{font-size:36px;font-weight:900;color:var(--red);letter-spacing:-1px;}
-.total-unit{font-size:14px;color:var(--subtext);font-weight:400;}
+/* ── TOTAL SCORE CARD ── */
+.total-card{
+  margin:18px 16px 0;background:var(--white);
+  border-radius:20px;padding:20px;
+  box-shadow:var(--shadow);border-top:4px solid var(--red);
+}
+.total-label{font-size:12px;color:var(--subtext);font-weight:600;margin-bottom:10px;letter-spacing:0.3px;}
+.total-main{display:flex;align-items:flex-end;justify-content:space-between;}
+.total-score-val{font-size:40px;font-weight:900;color:var(--red);line-height:1;letter-spacing:-1px;}
+.total-score-max{font-size:14px;color:var(--subtext);margin-left:4px;margin-bottom:4px;}
 .total-breakdown{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
-.total-chip{background:#f7f3f0;border-radius:10px;padding:6px 12px;font-size:12px;color:var(--text);}
-.total-chip span{font-weight:700;color:var(--red);}
+.total-chip{
+  background:#f7f3f0;border-radius:10px;
+  padding:6px 12px;font-size:12px;color:var(--text);
+}
+.total-chip b{color:var(--red);}
 
 /* ── OFFICIAL BANNER ── */
-.official-banner{margin:16px 16px 0;background:linear-gradient(135deg,#fff5f3,#fff);border-radius:20px;padding:20px;box-shadow:var(--shadow);border-left:5px solid var(--red);}
-.official-banner-title{font-size:13px;font-weight:700;color:var(--red);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.official-banner{
+  margin:16px 16px 0;
+  background:linear-gradient(135deg,#fff5f3 0%,#fff 100%);
+  border-radius:20px;padding:20px;
+  box-shadow:var(--shadow);border-left:5px solid var(--red);
+}
+.official-banner-title{
+  font-size:12px;font-weight:800;color:var(--red);
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;
+}
 .official-banner-date{font-size:12px;color:var(--subtext);margin-bottom:14px;}
 .official-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.official-item{background:#fff;border-radius:14px;padding:12px;box-shadow:0 2px 10px rgba(0,0,0,0.06);}
-.official-item-label{font-size:11px;color:var(--subtext);margin-bottom:4px;font-weight:600;}
-.official-item-value{font-size:20px;font-weight:800;color:var(--text);}
+.official-item{
+  background:#fff;border-radius:14px;padding:12px 14px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+.official-item-label{font-size:11px;color:var(--subtext);font-weight:600;margin-bottom:5px;}
+.official-item-value{font-size:22px;font-weight:900;color:var(--text);}
 .official-item-unit{font-size:11px;color:var(--subtext);margin-left:2px;}
-.official-item-score{font-size:11px;color:var(--red);font-weight:700;margin-top:3px;}
+.official-item-score{font-size:11px;color:var(--red);font-weight:700;margin-top:4px;}
 
 /* ── TABS ── */
-.tab-wrap{display:flex;gap:8px;padding:16px 16px 0;background:var(--bg);}
-.tab-btn{flex:1;padding:11px 0;border:none;border-radius:12px;background:#e8e0d8;color:#888;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;}
-.tab-btn.active{background:var(--red);color:#fff;box-shadow:0 4px 14px rgba(212,52,26,0.3);}
+.tab-wrap{
+  display:flex;gap:8px;padding:16px 16px 0;
+  background:var(--bg);position:sticky;top:0;z-index:10;
+}
+.tab-btn{
+  flex:1;padding:12px 0;border:none;border-radius:12px;
+  background:#e8e0d8;color:#999;font-size:14px;font-weight:600;
+  cursor:pointer;transition:all .2s;
+}
+.tab-btn.active{
+  background:var(--red);color:#fff;
+  box-shadow:0 4px 14px rgba(212,52,26,0.30);
+}
 .tab-content{display:none;}
 .tab-content.active{display:block;}
 
 /* ── CONTAINER ── */
-.container{padding:0 0 32px;}
+.container{padding:0 0 40px;}
+
+/* ── ACAD CARD ── */
+.acad-card{
+  margin:16px 16px 0;background:var(--white);
+  border-radius:20px;padding:18px 20px;
+  box-shadow:var(--shadow);
+  display:flex;align-items:center;justify-content:space-between;
+  border-left:4px solid var(--yellow);
+}
+.acad-label{font-size:13px;color:var(--subtext);font-weight:600;}
+.acad-value{font-size:28px;font-weight:900;color:var(--dark);}
+.acad-unit{font-size:13px;color:var(--subtext);margin-left:3px;}
 
 /* ── EVENT CARD ── */
-.event-card{margin:16px 16px 0;background:var(--white);border-radius:20px;padding:20px;box-shadow:var(--shadow);overflow:hidden;}
+.event-card{
+  margin:16px 16px 0;background:var(--white);
+  border-radius:20px;padding:20px;
+  box-shadow:var(--shadow);
+}
 .event-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-.event-logo-box{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:6px;}
+.event-logo-box{
+  width:54px;height:54px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;padding:8px;
+}
 .event-logo-box img{width:100%;height:100%;object-fit:contain;}
-.el1{background:linear-gradient(135deg,#fff0ec,#ffe0d6);}
-.el2{background:linear-gradient(135deg,#fff3e0,#ffe8c8);}
+.el1{background:linear-gradient(135deg,#fff0ec,#ffd6c8);}
+.el2{background:linear-gradient(135deg,#fff3e0,#ffe0b2);}
 .el3{background:linear-gradient(135deg,#fff8e1,#ffecb3);}
 .el4{background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
-.event-title{font-size:16px;font-weight:800;color:var(--text);}
-.event-unit{font-size:12px;color:var(--subtext);margin-top:2px;}
-.stat-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:12px;}
-.best-label{font-size:11px;color:var(--subtext);margin-bottom:2px;}
-.best-record{font-size:32px;font-weight:900;line-height:1;}
+.event-title{font-size:16px;font-weight:800;color:var(--text);margin-bottom:3px;}
+.event-meta{font-size:11px;color:var(--subtext);}
+.stat-row{
+  display:flex;align-items:flex-end;
+  justify-content:space-between;margin-bottom:12px;
+}
+.best-label{font-size:11px;color:var(--subtext);margin-bottom:3px;}
+.best-record{font-size:34px;font-weight:900;line-height:1;}
 .best-unit{font-size:14px;color:var(--subtext);margin-left:3px;}
+.br1{color:var(--c1);}
+.br2{color:var(--c2);}
+.br3{color:var(--c3);}
+.br4{color:var(--c4);}
 .achievement{text-align:right;}
-.ach-label{font-size:11px;color:var(--subtext);margin-bottom:2px;}
-.ach-pct{font-size:26px;font-weight:900;}
-.ap1{color:var(--c1);}.ap2{color:var(--c2);}.ap3{color:var(--c3);}.ap4{color:var(--c4);}
-.progress-wrap{height:8px;background:#f0ece8;border-radius:50px;margin-bottom:6px;overflow:hidden;}
+.ach-label{font-size:11px;color:var(--subtext);margin-bottom:3px;}
+.ach-pct{font-size:28px;font-weight:900;}
+.ap1{color:var(--c1);}
+.ap2{color:var(--c2);}
+.ap3{color:var(--c3);}
+.ap4{color:var(--c4);}
+.progress-wrap{
+  height:8px;background:#f0ece8;
+  border-radius:50px;margin-bottom:6px;overflow:hidden;
+}
 .progress-bar{height:100%;border-radius:50px;transition:width 1s cubic-bezier(.4,0,.2,1);}
-.pb1{background:linear-gradient(90deg,var(--c1),#e05c2a);}
-.pb2{background:linear-gradient(90deg,var(--c2),#e84d30);}
-.pb3{background:linear-gradient(90deg,var(--c3),#f0812a);}
-.pb4{background:linear-gradient(90deg,var(--c4),#f7c050);}
-.progress-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--subtext);margin-bottom:16px;}
+.pb1{background:linear-gradient(90deg,#C44B0F,#e05c2a);}
+.pb2{background:linear-gradient(90deg,#D4341A,#e84d30);}
+.pb3{background:linear-gradient(90deg,#E8621A,#f0812a);}
+.pb4{background:linear-gradient(90deg,#F5A623,#f7c050);}
+.progress-meta{
+  display:flex;justify-content:space-between;
+  font-size:10px;color:var(--subtext);margin-bottom:14px;
+}
 .chart-toggle{display:flex;gap:6px;margin-bottom:12px;}
-.chart-toggle-btn{flex:1;padding:7px 0;border:1.5px solid #e0dbd8;border-radius:10px;background:#fff;color:#aaa;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;}
-.chart-toggle-btn.active{border-color:var(--red);color:var(--red);background:#fff5f3;}
-.chart-wrap{position:relative;height:180px;}
+.chart-toggle-btn{
+  flex:1;padding:8px 0;
+  border:1.5px solid #e0dbd8;border-radius:10px;
+  background:#fff;color:#aaa;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all .2s;
+}
+.chart-toggle-btn.active{
+  border-color:var(--red);color:var(--red);background:#fff5f3;
+}
+.chart-wrap{position:relative;height:190px;}
 
 /* ── TABLE ── */
 .table-section{margin:16px 16px 0;}
-.table-section h3{font-size:14px;color:var(--subtext);font-weight:600;margin-bottom:10px;}
+.table-section-title{
+  font-size:13px;color:var(--subtext);
+  font-weight:700;margin-bottom:10px;letter-spacing:0.3px;
+}
 .table-wrap{overflow-x:auto;border-radius:16px;box-shadow:var(--shadow);}
-table{width:100%;border-collapse:collapse;background:#fff;font-size:12px;min-width:480px;}
-th{background:var(--red);color:#fff;padding:10px 8px;text-align:center;font-weight:700;white-space:nowrap;}
-td{padding:9px 8px;text-align:center;border-bottom:1px solid #f5f0ee;color:var(--text);}
+table{
+  width:100%;border-collapse:collapse;
+  background:#fff;font-size:11px;min-width:520px;
+}
+th{
+  background:var(--red);color:#fff;
+  padding:10px 8px;text-align:center;
+  font-weight:700;white-space:nowrap;
+}
+td{
+  padding:9px 8px;text-align:center;
+  border-bottom:1px solid #f5f0ee;color:var(--text);
+}
 tr:last-child td{border-bottom:none;}
-tr.official-row td{background:#fff8f7;font-weight:600;}
-.tag-official{display:inline-block;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 5px;border-radius:5px;margin-top:3px;}
-.tag-monthly{display:inline-block;background:#f0ece8;color:#999;font-size:9px;font-weight:600;padding:2px 5px;border-radius:5px;margin-top:3px;}
+tr.official-row td{background:#fff8f7;}
+.tag-official{
+  display:inline-block;background:var(--red);color:#fff;
+  font-size:9px;font-weight:700;
+  padding:2px 5px;border-radius:5px;margin-top:3px;
+}
+.tag-monthly{
+  display:inline-block;background:#f0ece8;color:#aaa;
+  font-size:9px;font-weight:600;
+  padding:2px 5px;border-radius:5px;margin-top:3px;
+}
 
 /* ── MISC ── */
-.loading{text-align:center;padding:60px 20px;color:var(--subtext);font-size:15px;line-height:1.7;}
-.no-data{text-align:center;padding:30px;color:#ccc;font-size:13px;}
-.br1{color:var(--c1);}.br2{color:var(--c2);}.br3{color:var(--c3);}.br4{color:var(--c4);}
+.loading{
+  text-align:center;padding:60px 20px;
+  color:var(--subtext);font-size:15px;line-height:1.8;
+}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ── HEADER ── -->
 <div class="header">
-  <div class="header-logo-box">
-    <img src="images/동국대학교.png" alt="동국대학교" onerror="this.parentElement.innerHTML='<span style=\'color:var(--red);font-weight:900;font-size:14px;\'>동국대학교</span>'">
+  <div class="header-logo-box" id="logoBox">
+    <img
+      src="images/dongguk.png"
+      alt="동국대학교"
+      id="logoImg"
+      onerror="document.getElementById('logoBox').innerHTML='<span class=\'header-logo-text\'>동국대학교</span>'"
+    >
   </div>
-  <div class="header-univ" id="hUniv">Dongguk University</div>
+  <div class="header-univ" id="hUniv">Dongguk University · 체육교육과</div>
   <div class="header-name" id="hName">···</div>
   <div class="header-info" id="hInfo"></div>
   <div class="header-badge" id="hBadge">로딩 중</div>
 </div>
 
-<!-- TOTAL SCORE CARD -->
+<!-- ── TOTAL SCORE CARD ── -->
 <div class="total-card" id="totalCard" style="display:none;">
-  <div class="total-label">최근 기록 총점 (내신환산 + 실기×1.75)</div>
-  <div class="total-row" style="margin-top:8px;">
+  <div class="total-label">📊 최근 기록 총점 · 내신환산 + 실기합계 × 1.75</div>
+  <div class="total-main">
     <div>
-      <span class="total-score" id="totalScore">—</span>
-      <span class="total-unit"> / 700점</span>
+      <span class="total-score-val" id="totalScore">—</span>
+      <span class="total-score-max">/ 700점</span>
     </div>
   </div>
   <div class="total-breakdown" id="totalBreakdown"></div>
 </div>
 
-<!-- OFFICIAL BANNER -->
-<div id="officialBanner" style="display:none;"></div>
+<!-- ── OFFICIAL BANNER ── -->
+<div id="officialBanner"></div>
 
-<!-- TABS -->
+<!-- ── TABS ── -->
 <div class="tab-wrap">
   <button class="tab-btn active" onclick="switchTab('chart')">📊 차트</button>
   <button class="tab-btn" onclick="switchTab('table')">📋 기록표</button>
 </div>
 
+<!-- ── CONTENTS ── -->
 <div class="container">
   <div class="tab-content active" id="tab-chart">
-    <div id="chartArea"><div class="loading">⏳ 데이터 불러오는 중...</div></div>
+    <div id="acadCard" style="display:none;" class="acad-card">
+      <div>
+        <div class="acad-label">🎓 내신환산 점수</div>
+      </div>
+      <div>
+        <span class="acad-value" id="acadVal">—</span>
+        <span class="acad-unit">점</span>
+      </div>
+    </div>
+    <div id="chartArea">
+      <div class="loading">⏳ 데이터 불러오는 중...</div>
+    </div>
   </div>
   <div class="tab-content" id="tab-table">
     <div id="tableArea"></div>
@@ -151,36 +297,44 @@ tr.official-row td{background:#fff8f7;font-weight:600;}
 </div>
 
 <script>
-// ── 설정 ──────────────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   설정
+──────────────────────────────────────────────────── */
 const SHEET_ID  = '1-uvH7koGGIEYXO8mL56xVUbUWXEbNPVuVP3htZ2wQMY';
 const SHEET_TAB = '기록데이터';
-const LOGO_SRC  = 'images/동국대학교.png';
+const LOGO_SRC  = 'images/dongguk.png';
 
-// 성별별 종목 기준 (만점기준, 최저기준)
+/* 성별별 만점·최저 기준 */
 const STD = {
   남: {
-    strength: { max:220, min:130, unit:'kg',  higher:true  },
-    flex:     { max:30.0, min:11.9, unit:'cm',  higher:true  },
-    jump:     { max:300, min:254, unit:'cm',  higher:true  },
-    run:      { max:7.19, min:9.90, unit:'초',  higher:false }
+    strength:{ max:220,  min:130,  unit:'kg', higher:true  },
+    flex:    { max:30.0, min:11.9, unit:'cm', higher:true  },
+    jump:    { max:300,  min:254,  unit:'cm', higher:true  },
+    run:     { max:7.19, min:9.90, unit:'초', higher:false }
   },
   여: {
-    strength: { max:151, min:60,   unit:'kg',  higher:true  },
-    flex:     { max:32.0, min:13.9, unit:'cm',  higher:true  },
-    jump:     { max:250, min:199, unit:'cm',  higher:true  },
-    run:      { max:7.60, min:10.90,unit:'초',  higher:false }
+    strength:{ max:151,  min:60,   unit:'kg', higher:true  },
+    flex:    { max:32.0, min:13.9, unit:'cm', higher:true  },
+    jump:    { max:250,  min:199,  unit:'cm', higher:true  },
+    run:     { max:7.60, min:10.90,unit:'초', higher:false }
   }
 };
 
-// 종목 정의 (col: 0-indexed CSV column index)
-// 시트 컬럼: A(0)구분 B(1)날짜 C(2)이름 D(3)성별 E(4)학교 F(5)대학명 G(6)학과명
-//            H(7)내신환산 I(8)배근력 J(9)환산 K(10)좌전굴 L(11)환산
-//            M(12)멀리뛰기 N(13)환산 O(14)달리기 P(15)환산 Q(16)총점
+/*
+  시트 컬럼 인덱스 (0-based)
+  A(0)구분  B(1)날짜  C(2)이름  D(3)성별  E(4)학교
+  F(5)대학명  G(6)학과명  H(7)내신환산
+  I(8)배근력  J(9)환산점수
+  K(10)좌전굴  L(11)환산점수
+  M(12)멀리뛰기  N(13)환산점수
+  O(14)달리기  P(15)환산점수
+  Q(16)총점
+*/
 const EVENTS = [
-  { key:'strength', label:'배근력',              ci:'1', col:8,  scol:9  },
-  { key:'flex',     label:'앉아 윗몸 앞으로 굽히기', ci:'2', col:10, scol:11 },
-  { key:'jump',     label:'제자리 멀리뛰기',       ci:'3', col:12, scol:13 },
-  { key:'run',      label:'중량달리기',            ci:'4', col:14, scol:15 }
+  { key:'strength', label:'배근력',              unit_label:'kg',  ci:'1', col:8,  scol:9  },
+  { key:'flex',     label:'앉아 윗몸 앞으로 굽히기', unit_label:'cm',  ci:'2', col:10, scol:11 },
+  { key:'jump',     label:'제자리 멀리뛰기',       unit_label:'cm',  ci:'3', col:12, scol:13 },
+  { key:'run',      label:'중량달리기',            unit_label:'초',  ci:'4', col:14, scol:15 }
 ];
 
 const LINE_C = [
@@ -190,20 +344,22 @@ const LINE_C = [
   { line:'#F5A623', fill:'rgba(245,166,35,0.07)' }
 ];
 const BAR_C = [
-  'rgba(196,75,15,0.75)','rgba(212,52,26,0.75)',
-  'rgba(232,98,26,0.75)','rgba(245,166,35,0.75)'
+  'rgba(196,75,15,0.80)','rgba(212,52,26,0.80)',
+  'rgba(232,98,26,0.80)','rgba(245,166,35,0.80)'
 ];
 
-// ── 상태 변수 ──────────────────────────────────────────────────────────────────
-let chartInst = {};   // 차트 인스턴스 저장
-let chartType = {};   // 종목별 'line'|'bar'
+/* ── 전역 상태 ── */
+let chartInst  = {};
+let chartTypes = {};
 let studentData = null;
 
-// ── URL 파라미터 ────────────────────────────────────────────────────────────────
 const urlName = new URLSearchParams(window.location.search).get('name') || '';
 
-// ── CSV 로드 ────────────────────────────────────────────────────────────────────
-const CSV_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_TAB)}`;
+/* ────────────────────────────────────────────────────
+   CSV 로드
+──────────────────────────────────────────────────── */
+const CSV_URL =
+  `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(SHEET_TAB)}`;
 
 fetch(CSV_URL)
   .then(r => r.text())
@@ -212,22 +368,25 @@ fetch(CSV_URL)
     const data = parseStudent(rows, urlName);
     if (!data) {
       document.getElementById('chartArea').innerHTML =
-        `<div class="loading">❌ <strong>${urlName || '이름'}</strong> 데이터를 찾을 수 없어요.<br>URL의 ?name= 값을 확인해주세요.</div>`;
+        `<div class="loading">❌ <b>${urlName || '(이름 없음)'}</b> 데이터를 찾을 수 없어요.<br>URL ?name= 값을 확인해주세요.</div>`;
       return;
     }
     studentData = data;
     renderHeader(data);
     renderTotalCard(data);
     renderOfficialBanner(data);
-    renderChart(data);
-    renderTable(data);
+    renderAcadCard(data);
+    renderChartTab(data);
+    renderTableTab(data);
   })
   .catch(() => {
     document.getElementById('chartArea').innerHTML =
       '<div class="loading">❌ 데이터를 불러올 수 없어요.<br>구글 시트 공개 설정을 확인해주세요.</div>';
   });
 
-// ── CSV 파싱 ────────────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   CSV 파싱
+──────────────────────────────────────────────────── */
 function parseCSV(text) {
   return text.trim().split('\n').map(line => {
     const res = []; let cur = '', inQ = false;
@@ -241,21 +400,33 @@ function parseCSV(text) {
   });
 }
 
-// ── 학생 데이터 추출 ────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   학생 데이터 추출
+──────────────────────────────────────────────────── */
+function parseVal(v) {
+  if (v === undefined || v === null) return null;
+  const s = String(v).trim();
+  if (s === '') return null;
+  if (s === '미응시') return '미응시';
+  const n = parseFloat(s);
+  return isNaN(n) ? null : n;
+}
+
 function parseStudent(rows, name) {
+  if (!name) return null;
   const official = [], monthly = [];
-  let gender = '', school = '', univ = '', dept = '', acadScore = '';
+  let gender = '남', school = '', univ = '', dept = '', acadScore = null;
 
   for (let i = 1; i < rows.length; i++) {
     const r = rows[i];
-    if (!r[2]) continue;
-    if (r[2] !== name) continue;
+    /* 이름 컬럼(인덱스 2) 비교 */
+    if (!r[2] || r[2] !== name) continue;
 
     gender    = r[3] || '남';
     school    = r[4] || '';
     univ      = r[5] || '';
     dept      = r[6] || '';
-    acadScore = r[7] || '';
+    if (r[7] && r[7] !== '') acadScore = parseFloat(r[7]) || null;
 
     const item = {
       type:      r[0] || '',
@@ -271,7 +442,7 @@ function parseStudent(rows, name) {
       total:     parseVal(r[16])
     };
 
-    if (r[0].includes('공식')) official.push(item);
+    if (r[0] && r[0].includes('공식')) official.push(item);
     else monthly.push(item);
   }
 
@@ -282,90 +453,102 @@ function parseStudent(rows, name) {
   return { name, gender, school, univ, dept, acadScore, official, monthly };
 }
 
-function parseVal(v) {
-  if (v === undefined || v === null || v === '') return null;
-  if (typeof v === 'string' && v.trim() === '미응시') return '미응시';
-  const n = parseFloat(v);
-  return isNaN(n) ? null : n;
-}
-
-// ── 헤더 렌더링 ────────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   헤더
+──────────────────────────────────────────────────── */
 function renderHeader(d) {
-  const gStr = d.gender === '여' ? '여성' : '남성';
-  document.getElementById('hUniv').textContent =
-    `${d.univ || 'Dongguk University'}${d.dept ? ' · ' + d.dept : ''}`;
-  document.getElementById('hName').textContent = d.name || '학생';
-  document.getElementById('hInfo').textContent = d.school || '';
-  document.getElementById('hBadge').textContent = gStr;
+  const univStr = [d.univ, d.dept].filter(Boolean).join(' · ') || 'Dongguk University';
+  document.getElementById('hUniv').textContent  = univStr;
+  document.getElementById('hName').textContent  = d.name;
+  document.getElementById('hInfo').textContent  = d.school || '';
+  document.getElementById('hBadge').textContent = d.gender === '여' ? '👩 여성' : '🧑 남성';
 }
 
-// ── 총점 카드 ───────────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   총점 카드
+──────────────────────────────────────────────────── */
 function renderTotalCard(d) {
-  const src = [...d.official, ...d.monthly]
+  /* 가장 최근 총점이 있는 행 */
+  const allSorted = [...d.official, ...d.monthly]
     .sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
-  // 가장 최근의 총점이 있는 행 찾기
   let recent = null;
-  for (const r of src) {
-    if (r.total !== null && r.total !== '미응시') { recent = r; break; }
+  for (const r of allSorted) {
+    if (r.total !== null && typeof r.total === 'number') { recent = r; break; }
   }
   if (!recent) return;
 
   document.getElementById('totalCard').style.display = '';
-  document.getElementById('totalScore').textContent =
-    typeof recent.total === 'number' ? recent.total.toFixed(2) : recent.total;
+  document.getElementById('totalScore').textContent  = recent.total.toFixed(2);
 
-  const acad = d.acadScore && d.acadScore !== '' ? parseFloat(d.acadScore) : null;
-  const practSum = [recent.strScore, recent.flxScore, recent.jmpScore, recent.runScore]
-    .filter(v => typeof v === 'number').reduce((a, c) => a + c, 0);
-  const pract175 = +(practSum * 1.75).toFixed(2);
-
+  /* 내역 칩 */
   const chips = [];
-  if (acad !== null) chips.push(`내신환산 <span>${acad}</span>`);
-  chips.push(`실기합계(×1.75) <span>${pract175}</span>`);
-
+  if (d.acadScore !== null) {
+    chips.push(`🎓 내신환산 <b>${d.acadScore}</b>점`);
+  }
+  const scores = [recent.strScore, recent.flxScore, recent.jmpScore, recent.runScore]
+    .filter(v => typeof v === 'number');
+  if (scores.length) {
+    const practSum = scores.reduce((a, c) => a + c, 0);
+    chips.push(`💪 실기합계 <b>${practSum.toFixed(4)}</b> × 1.75 = <b>${(practSum*1.75).toFixed(2)}</b>`);
+  }
   document.getElementById('totalBreakdown').innerHTML =
     chips.map(c => `<div class="total-chip">${c}</div>`).join('');
 }
 
-// ── 공식 테스트 배너 ────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   공식 테스트 배너
+──────────────────────────────────────────────────── */
 function renderOfficialBanner(d) {
-  if (!d.official.length) return;
-  const ov = d.official[d.official.length - 1];
-  const std = STD[d.gender] || STD['남'];
-
   const banner = document.getElementById('officialBanner');
-  banner.style.display = '';
-
-  const items = [
-    makeOB('배근력',    ov.strength, std.strength.unit, ov.strScore),
-    makeOB('좌전굴',    ov.flex,     std.flex.unit,     ov.flxScore),
-    makeOB('멀리뛰기',  ov.jump,     std.jump.unit,     ov.jmpScore),
-    makeOB('중량달리기', ov.run,      std.run.unit,      ov.runScore)
-  ].join('');
-
+  if (!d.official.length) { banner.innerHTML = ''; return; }
+  const ov  = d.official[d.official.length - 1];
+  const std = STD[d.gender] || STD['남'];
   banner.innerHTML = `
     <div class="official-banner">
       <div class="official-banner-title">🏅 공식 테스트 최근 기록</div>
-      <div class="official-banner-date">측정일: ${ov.date}</div>
-      <div class="official-grid">${items}</div>
+      <div class="official-banner-date">측정일 : ${ov.date}</div>
+      <div class="official-grid">
+        ${makeOB('배근력',    ov.strength, std.strength.unit, ov.strScore)}
+        ${makeOB('좌전굴',    ov.flex,     std.flex.unit,     ov.flxScore)}
+        ${makeOB('멀리뛰기',  ov.jump,     std.jump.unit,     ov.jmpScore)}
+        ${makeOB('중량달리기', ov.run,      std.run.unit,      ov.runScore)}
+      </div>
     </div>`;
 }
 
 function makeOB(label, val, unit, score) {
-  const vStr = val === null ? '-' : (val === '미응시' ? '미응시' : val);
+  const vStr = val === null ? '-' : (val === '미응시' ? '미응시' : String(val));
   const uStr = (val !== null && val !== '미응시') ? unit : '';
-  const sStr = (score !== null && score !== '미응시' && typeof score === 'number')
-    ? `<div class="official-item-score">환산 ${score.toFixed(4)}점</div>` : '';
+  const sEl  = (typeof score === 'number')
+    ? `<div class="official-item-score">환산 ${score.toFixed(4)}점</div>`
+    : (score === '미응시' ? '<div class="official-item-score">미응시 (0점)</div>' : '');
   return `
     <div class="official-item">
       <div class="official-item-label">${label}</div>
-      <span class="official-item-value">${vStr}</span><span class="official-item-unit">${uStr}</span>
-      ${sStr}
+      <span class="official-item-value">${vStr}</span>
+      <span class="official-item-unit">${uStr}</span>
+      ${sEl}
     </div>`;
 }
 
-// ── 탭 전환 ────────────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────
+   내신환산 카드 (차트 탭 상단)
+──────────────────────────────────────────────────── */
+function renderAcadCard(d) {
+  const card = document.getElementById('acadCard');
+  const val  = document.getElementById('acadVal');
+  if (d.acadScore !== null) {
+    card.style.display = '';
+    val.textContent = d.acadScore;
+  } else {
+    card.style.display = 'none';
+  }
+}
+
+/* ────────────────────────────────────────────────────
+   탭 전환
+──────────────────────────────────────────────────── */
 function switchTab(name) {
   document.querySelectorAll('.tab-btn').forEach((b, i) => {
     b.classList.toggle('active', ['chart','table'][i] === name);
@@ -374,18 +557,23 @@ function switchTab(name) {
   document.getElementById('tab-' + name).classList.add('active');
 }
 
-// ── 차트 탭 렌더링 ─────────────────────────────────────────────────────────────
-function renderChart(d) {
+/* ────────────────────────────────────────────────────
+   차트 탭
+──────────────────────────────────────────────────── */
+function renderChartTab(d) {
   const area = document.getElementById('chartArea');
   area.innerHTML = '';
-  const std = STD[d.gender] || STD['남'];
-  const allData = [...d.monthly]; // 공식테스트 제외, 월별만
-  const labels = allData.map(r => r.date);
+
+  const std    = STD[d.gender] || STD['남'];
+  const mData  = d.monthly;
+  const labels = mData.map(r => r.date);
+
+  const valKey = { strength:'strength', flex:'flex', jump:'jump', run:'run' };
 
   EVENTS.forEach((ev, idx) => {
     const s = std[ev.key];
-    const values = allData.map(r => {
-      const v = r[ev.key];
+    const values = mData.map(r => {
+      const v = r[valKey[ev.key]];
       return (v !== null && v !== '미응시') ? v : null;
     });
     const validVals = values.filter(v => v !== null);
@@ -400,18 +588,20 @@ function renderChart(d) {
       pct = Math.max(0, Math.min(100, pct));
     }
 
-    const lc = LINE_C[idx];
     const card = document.createElement('div');
     card.className = 'event-card';
     card.innerHTML = `
       <div class="event-header">
         <div class="event-logo-box el${ev.ci}">
-          <img src="${LOGO_SRC}" alt="동국대학교"
-               onerror="this.parentElement.innerHTML='<span style=\'font-size:20px;color:var(--c${ev.ci})\'>🏅</span>'">
+          <img
+            src="${LOGO_SRC}"
+            alt="동국대"
+            onerror="this.parentElement.innerHTML='<span style=font-size:22px>🏅</span>'"
+          >
         </div>
         <div>
           <div class="event-title">${ev.label}</div>
-          <div class="event-unit">단위: ${s.unit} &nbsp;|&nbsp; 만점: ${s.max}${s.unit}</div>
+          <div class="event-meta">단위: ${s.unit} &nbsp;|&nbsp; 만점: ${s.max}${s.unit}</div>
         </div>
       </div>
       <div class="stat-row">
@@ -433,28 +623,36 @@ function renderChart(d) {
         <span>만점 ${s.max}${s.unit}</span>
       </div>
       <div class="chart-toggle">
-        <button class="chart-toggle-btn active" id="btn_line_${ev.key}" onclick="switchChartType('${ev.key}','line')">꺾은선</button>
-        <button class="chart-toggle-btn"        id="btn_bar_${ev.key}"  onclick="switchChartType('${ev.key}','bar')">막대</button>
+        <button class="chart-toggle-btn active" id="btn_line_${ev.key}"
+          onclick="switchChartType('${ev.key}','line')">꺾은선</button>
+        <button class="chart-toggle-btn" id="btn_bar_${ev.key}"
+          onclick="switchChartType('${ev.key}','bar')">막대</button>
       </div>
-      <div class="chart-wrap"><canvas id="chart_${ev.key}"></canvas></div>`;
+      <div class="chart-wrap">
+        <canvas id="chart_${ev.key}"></canvas>
+      </div>`;
     area.appendChild(card);
 
     setTimeout(() => {
-      document.getElementById('pb_' + ev.key).style.width = pct + '%';
-    }, 100);
+      const pb = document.getElementById('pb_' + ev.key);
+      if (pb) pb.style.width = pct + '%';
+    }, 150);
 
-    chartType[ev.key] = 'line';
-    buildChart(ev.key, 'line', labels, values, s, lc, idx);
+    chartTypes[ev.key] = 'line';
+    buildChart(ev.key, 'line', labels, values, s, idx);
   });
 }
 
-function buildChart(key, type, labels, values, s, lc, idx) {
-  const ctx = document.getElementById('chart_' + key);
-  if (!ctx) return;
-  if (chartInst[key]) { chartInst[key].destroy(); }
+/* ── 차트 생성 ── */
+function buildChart(key, type, labels, values, s, idx) {
+  const canvas = document.getElementById('chart_' + key);
+  if (!canvas) return;
+  if (chartInst[key]) { chartInst[key].destroy(); delete chartInst[key]; }
 
-  const isLine = type === 'line';
-  chartInst[key] = new Chart(ctx, {
+  const lc     = LINE_C[idx];
+  const isLine = (type === 'line');
+
+  chartInst[key] = new Chart(canvas, {
     type: isLine ? 'line' : 'bar',
     data: {
       labels,
@@ -462,106 +660,122 @@ function buildChart(key, type, labels, values, s, lc, idx) {
         {
           label: s.unit,
           data: values,
-          borderColor: isLine ? lc.line : undefined,
-          backgroundColor: isLine ? lc.fill : BAR_C[idx],
-          borderWidth: isLine ? 2.5 : 0,
-          pointRadius: isLine ? 5 : 0,
+          borderColor:       isLine ? lc.line : undefined,
+          backgroundColor:   isLine ? lc.fill : BAR_C[idx],
+          borderWidth:       isLine ? 2.5 : 0,
+          pointRadius:       isLine ? 5   : 0,
           pointBackgroundColor: isLine ? lc.line : undefined,
-          fill: isLine,
-          tension: 0.35,
-          spanGaps: true,
-          borderRadius: isLine ? 0 : 8
+          fill:              isLine,
+          tension:           0.35,
+          spanGaps:          true,
+          borderRadius:      isLine ? 0 : 8
         },
         {
           label: '만점기준',
           data: Array(labels.length).fill(s.max),
-          borderColor: '#ff5252',
-          borderWidth: 1.5,
-          borderDash: [5, 4],
-          pointRadius: 0,
-          type: 'line',
-          fill: false,
-          tension: 0
+          borderColor:  '#ff5252',
+          borderWidth:  1.5,
+          borderDash:   [5, 4],
+          pointRadius:  0,
+          type:         'line',
+          fill:         false,
+          tension:      0
         }
       ]
     },
     options: {
       responsive: true,
       maintainAspectRatio: false,
+      animation: { duration: 600 },
       plugins: {
         legend: { display: false },
         tooltip: {
           callbacks: {
             label: ctx => ctx.dataset.label === '만점기준'
               ? `만점기준: ${s.max}${s.unit}`
-              : `${ctx.parsed.y !== null ? ctx.parsed.y : '미응시'}${s.unit}`
+              : (ctx.parsed.y !== null ? `${ctx.parsed.y}${s.unit}` : '미응시')
           }
         }
       },
       scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#aaa' } },
-        y: { grid: { color: '#f5f0ee' }, ticks: { font: { size: 11 }, color: '#aaa' } }
+        x: {
+          grid: { display: false },
+          ticks: { font: { size: 11 }, color: '#aaa' }
+        },
+        y: {
+          grid: { color: '#f5f0ee' },
+          ticks: { font: { size: 11 }, color: '#aaa' }
+        }
       }
     }
   });
 }
 
+/* ── 꺾은선 ↔ 막대 전환 ── */
 function switchChartType(key, type) {
-  if (chartType[key] === type) return;
-  chartType[key] = type;
+  if (chartTypes[key] === type) return;
+  chartTypes[key] = type;
 
   document.getElementById('btn_line_' + key).classList.toggle('active', type === 'line');
   document.getElementById('btn_bar_'  + key).classList.toggle('active', type === 'bar');
 
-  const ev    = EVENTS.find(e => e.key === key);
-  const d     = studentData;
-  const std   = STD[d.gender] || STD['남'];
-  const s     = std[key];
-  const lc    = LINE_C[EVENTS.indexOf(ev)];
-  const idx   = EVENTS.indexOf(ev);
-  const allD  = [...d.monthly];
-  const labels = allD.map(r => r.date);
-  const values = allD.map(r => {
-    const v = r[ev.key];
+  const d    = studentData;
+  const std  = STD[d.gender] || STD['남'];
+  const ev   = EVENTS.find(e => e.key === key);
+  const idx  = EVENTS.indexOf(ev);
+  const s    = std[key];
+  const mData  = d.monthly;
+  const labels = mData.map(r => r.date);
+  const values = mData.map(r => {
+    const v = r[key];
     return (v !== null && v !== '미응시') ? v : null;
   });
-  buildChart(key, type, labels, values, s, lc, idx);
+  buildChart(key, type, labels, values, s, idx);
 }
 
-// ── 기록표 탭 렌더링 ────────────────────────────────────────────────────────────
-function renderTable(d) {
+/* ────────────────────────────────────────────────────
+   기록표 탭
+──────────────────────────────────────────────────── */
+function renderTableTab(d) {
   const area = document.getElementById('tableArea');
   const allRows = [
-    ...d.official.map(r => ({ ...r, isOfficial: true })),
-    ...d.monthly.map(r => ({ ...r, isOfficial: false }))
+    ...d.official.map(r => ({ ...r, isOfficial: true  })),
+    ...d.monthly.map( r => ({ ...r, isOfficial: false }))
   ].sort((a, b) => String(b.date).localeCompare(String(a.date)));
 
-  const fmtVal = (v, unit) => {
-    if (v === null) return '-';
-    if (v === '미응시') return '미응시';
-    return `${v}${unit}`;
+  const fmtV = v => {
+    if (v === null)       return '-';
+    if (v === '미응시')    return '미응시';
+    return String(v);
   };
-  const fmtScore = v => {
-    if (v === null) return '-';
-    if (v === '미응시') return '0';
-    return typeof v === 'number' ? v.toFixed(4) : v;
+  const fmtS = v => {
+    if (v === null)       return '-';
+    if (v === '미응시')    return '0';
+    if (typeof v === 'number') return v.toFixed(4);
+    return String(v);
+  };
+  const fmtT = v => {
+    if (v === null)            return '-';
+    if (v === '미응시')         return '-';
+    if (typeof v === 'number') return v.toFixed(2);
+    return String(v);
   };
 
   let html = `
     <div class="table-section">
-      <h3>전체 기록표</h3>
+      <div class="table-section-title">전체 기록표</div>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>날짜</th>
-              <th>배근력<br><small style="font-weight:400;opacity:.8">kg</small></th>
+              <th>배근력<br><small style="opacity:.75;font-weight:400">kg</small></th>
               <th>점수</th>
-              <th>좌전굴<br><small style="font-weight:400;opacity:.8">cm</small></th>
+              <th>좌전굴<br><small style="opacity:.75;font-weight:400">cm</small></th>
               <th>점수</th>
-              <th>멀리뛰기<br><small style="font-weight:400;opacity:.8">cm</small></th>
+              <th>멀리뛰기<br><small style="opacity:.75;font-weight:400">cm</small></th>
               <th>점수</th>
-              <th>달리기<br><small style="font-weight:400;opacity:.8">초</small></th>
+              <th>달리기<br><small style="opacity:.75;font-weight:400">초</small></th>
               <th>점수</th>
               <th>총점</th>
             </tr>
@@ -571,23 +785,20 @@ function renderTable(d) {
   allRows.forEach(r => {
     const cls = r.isOfficial ? 'official-row' : '';
     const tag = r.isOfficial
-      ? '<br><span class="tag-official">공식</span>'
-      : '<br><span class="tag-monthly">연습</span>';
-    const tot = r.total !== null
-      ? (typeof r.total === 'number' ? r.total.toFixed(2) : r.total)
-      : '-';
+      ? `<br><span class="tag-official">공식</span>`
+      : `<br><span class="tag-monthly">연습</span>`;
     html += `
       <tr class="${cls}">
         <td>${r.date}${tag}</td>
-        <td>${fmtVal(r.strength,'')}</td>
-        <td>${fmtScore(r.strScore)}</td>
-        <td>${fmtVal(r.flex,'')}</td>
-        <td>${fmtScore(r.flxScore)}</td>
-        <td>${fmtVal(r.jump,'')}</td>
-        <td>${fmtScore(r.jmpScore)}</td>
-        <td>${fmtVal(r.run,'')}</td>
-        <td>${fmtScore(r.runScore)}</td>
-        <td><strong>${tot}</strong></td>
+        <td>${fmtV(r.strength)}</td>
+        <td>${fmtS(r.strScore)}</td>
+        <td>${fmtV(r.flex)}</td>
+        <td>${fmtS(r.flxScore)}</td>
+        <td>${fmtV(r.jump)}</td>
+        <td>${fmtS(r.jmpScore)}</td>
+        <td>${fmtV(r.run)}</td>
+        <td>${fmtS(r.runScore)}</td>
+        <td><b>${fmtT(r.total)}</b></td>
       </tr>`;
   });
 
