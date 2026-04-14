@@ -14,7 +14,6 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .loading,.error{text-align:center;padding:60px 20px;font-size:1.1rem;color:var(--sub);}
 .error{color:#c0392b;}
 
-/* ── hero ── */
 .hero{background:linear-gradient(135deg,#E27422 0%,#F4983E 50%,#D4680F 100%);color:#fff;padding:28px 22px 24px;border-radius:0 0 28px 28px;box-shadow:0 6px 24px rgba(196,94,16,.3);margin-bottom:14px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08);}
 .hero::after{content:'';position:absolute;bottom:-30px;left:-20px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.05);}
@@ -23,7 +22,7 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .hero-info h1{font-size:1.25rem;font-weight:800;margin-bottom:2px;}
 .hero-info p{font-size:.8rem;opacity:.88;}
 .hero-info .cnt{font-size:.78rem;opacity:.75;margin-top:2px;}
-.hero-info .gender-badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.7rem;font-weight:700;margin-left:6px;vertical-align:middle;}
+.gender-badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:.7rem;font-weight:700;margin-left:6px;vertical-align:middle;}
 .gender-m{background:rgba(255,255,255,.25);color:#fff;}
 .gender-f{background:rgba(255,200,200,.35);color:#fff;}
 .hero-divider{height:1px;background:rgba(255,255,255,.2);margin:0 0 16px;position:relative;z-index:1;}
@@ -33,7 +32,6 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .hero-detail{font-size:.72rem;opacity:.78;line-height:1.7;}
 .hero-acad{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 14px;background:rgba(255,255,255,.18);border-radius:20px;font-size:.78rem;font-weight:600;}
 
-/* ── official card ── */
 .official-card{background:var(--card);border-radius:16px;margin:0 16px 14px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border);overflow:hidden;}
 .official-card-header{background:linear-gradient(135deg,#FFF8EE,#FFF1DC);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
 .oc-title{font-size:.92rem;font-weight:800;color:var(--primary-dark);}
@@ -53,12 +51,10 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .official-total-label{font-size:.78rem;color:var(--sub);font-weight:600;}
 .official-total-val{font-size:1.2rem;font-weight:900;color:var(--primary-dark);}
 
-/* ── tabs ── */
 .tabs{display:flex;gap:6px;margin:0 16px 14px;}
 .tab-btn{flex:1;padding:10px 0;border:2px solid var(--primary);border-radius:12px;background:transparent;color:var(--primary);font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;text-align:center;}
 .tab-btn.active{background:var(--primary);color:#fff;box-shadow:0 3px 10px rgba(226,116,34,.3);}
 
-/* ── event card ── */
 .content-area{padding:0 16px;}
 .event-card{background:var(--card);border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.06);margin-bottom:14px;overflow:hidden;border:1px solid var(--border);}
 .event-header{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);transition:background .15s;}
@@ -74,7 +70,6 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .chart-type-btn.active{background:var(--primary);color:#fff;}
 .chart-wrap{position:relative;width:100%;height:240px;margin-bottom:12px;}
 
-/* ── progress ── */
 .progress-wrap{margin-top:10px;}
 .progress-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;font-size:.78rem;}
 .progress-date{width:80px;color:var(--sub);white-space:nowrap;flex-shrink:0;font-size:.73rem;}
@@ -88,7 +83,6 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .detail-table td{padding:6px 8px;text-align:center;border-bottom:1px solid var(--border);}
 .detail-table tr.official td{background:#FFF8EE;font-weight:700;color:var(--primary-dark);}
 
-/* ── record table ── */
 .record-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
 .record-table{width:100%;border-collapse:collapse;font-size:.74rem;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);}
 .record-table th{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:9px 6px;text-align:center;white-space:nowrap;font-weight:600;}
@@ -96,7 +90,6 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 .record-table tr.official td{background:#FFF8EE;font-weight:700;color:var(--primary-dark);}
 .missing{color:#ccc;font-style:italic;font-size:.72rem;}
 
-/* ── calculator ── */
 .calc-card{background:var(--card);border-radius:16px;margin:0 0 14px;padding:20px 18px;box-shadow:0 2px 10px rgba(0,0,0,.06);border:1px solid var(--border);}
 .calc-title{font-size:1rem;font-weight:800;color:var(--primary-dark);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .calc-title img{width:24px;height:24px;object-fit:contain;}
@@ -122,22 +115,18 @@ body{font-family:'Apple SD Gothic Neo','Noto Sans KR',sans-serif;background:var(
 <body>
 <div id="app"><div class="loading">⏳ 데이터 불러오는 중...</div></div>
 <script>
-/* ═══════════════════════════════════════
-   Constants
-   ═══════════════════════════════════════ */
 var SHEET_ID  = '1-uvH7koGGIEYXO8mL56xVUbUWXEbNPVuVP3htZ2wQMY';
 var SHEET_TAB = '동국대학교체육교육과';
 var LOGO_SRC  = 'images/dongguk.png';
 var CSV_URL   = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID +
                 '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(SHEET_TAB);
 
-/* 동국대 공식 채점기준 (선형 보간: 최저=50점, 만점=100점) */
 var STD = {
   '남': {
     strength: { max:220, min:130 },
     flex:     { max:30.0, min:11.9 },
     jump:     { max:300, min:254 },
-    run:      { max:7.19, min:9.90 }   /* 낮을수록 좋음 */
+    run:      { max:7.19, min:9.90 }
   },
   '여': {
     strength: { max:151, min:60 },
@@ -154,9 +143,7 @@ var EVENTS = [
   { key:'run',      label:'중량달리기',    unit:'초', lowerBetter:true  }
 ];
 
-/* ═══════════════════════════════════════
-   Utilities
-   ═══════════════════════════════════════ */
+/* ── Utilities ── */
 function pv(v){
   if(v===undefined||v===null)return null;
   var s=String(v).replace(/,/g,'').trim();
@@ -181,17 +168,12 @@ function descSort(arr){
     return da>db?-1:da<db?1:0;
   });
 }
-
-/* 환산점수 계산 (동국대 공식) */
 function calcScore(evKey, rawVal, gender){
   if(rawVal===null||rawVal===undefined) return null;
   var g = gender==='여'?'여':'남';
-  var s = STD[g];
-  if(!s||!s[evKey]) return null;
-  var ref = s[evKey];
-  var score;
+  var s = STD[g]; if(!s||!s[evKey]) return null;
+  var ref = s[evKey], score;
   if(evKey==='run'){
-    /* 달리기: 낮을수록 좋음 */
     if(rawVal<=ref.max) score=100;
     else if(rawVal>=ref.min) score=50;
     else score = (ref.min-rawVal)/(ref.min-ref.max)*50+50;
@@ -203,9 +185,7 @@ function calcScore(evKey, rawVal, gender){
   return Math.round(score*10000)/10000;
 }
 
-/* ═══════════════════════════════════════
-   CSV Parser & Student Parser
-   ═══════════════════════════════════════ */
+/* ── CSV Parser ── */
 function parseCSV(text){
   var rows=[],lines=text.split(/\r?\n/);
   for(var i=0;i<lines.length;i++){
@@ -250,9 +230,7 @@ function parseStudent(name,rows){
   return records;
 }
 
-/* ═══════════════════════════════════════
-   Render: Hero
-   ═══════════════════════════════════════ */
+/* ── Hero ── */
 function renderHero(records,el){
   var r=records[0];if(!r){el.innerHTML='';return;}
   var off=records.filter(function(x){return isOfficial(x.type);});
@@ -264,26 +242,23 @@ function renderHero(records,el){
   if(total===null&&allHave)total=Math.round((acad+scores.reduce(function(a,b){return a+b;},0))*100)/100;
   var gCls=r.gender==='여'?'gender-f':'gender-m';
   el.innerHTML=
-    '<div class="hero">'+
-      '<div class="hero-top">'+
-        '<img class="hero-logo" src="'+LOGO_SRC+'" alt="동국대" onerror="this.style.display=\'none\'">'+
-        '<div class="hero-info"><h1>'+r.name+
-          '<span class="gender-badge '+gCls+'">'+r.gender+'</span></h1>'+
-        '<p>'+r.school+' · '+r.univ+' '+r.dept+'</p>'+
-        '<p class="cnt">총 '+records.length+'회 기록</p></div></div>'+
-      '<div class="hero-divider"></div>'+
-      '<div class="hero-score-area">'+
-        '<div class="hero-label">최종 총점 (내신환산 + 종목환산합계)</div>'+
-        '<div class="hero-score">'+(total!==null?total.toFixed(2):'—')+'</div>'+
-        '<div class="hero-detail">배근력 '+fmt(last.strScore)+' + 좌전굴 '+fmt(last.flexScore)+
-          ' + 멀리뛰기 '+fmt(last.jumpScore)+' + 달리기 '+fmt(last.runScore)+'</div>'+
-        (acad>0?'<div class="hero-acad">📚 내신환산 '+acad.toFixed(2)+'</div>':'')+
-      '</div></div>';
+    '<div class="hero"><div class="hero-top">'+
+    '<img class="hero-logo" src="'+LOGO_SRC+'" alt="동국대" onerror="this.style.display=\'none\'">'+
+    '<div class="hero-info"><h1>'+r.name+
+    '<span class="gender-badge '+gCls+'">'+r.gender+'</span></h1>'+
+    '<p>'+r.school+' · '+r.univ+' '+r.dept+'</p>'+
+    '<p class="cnt">총 '+records.length+'회 기록</p></div></div>'+
+    '<div class="hero-divider"></div>'+
+    '<div class="hero-score-area">'+
+    '<div class="hero-label">최종 총점 (내신환산 + 종목환산합계)</div>'+
+    '<div class="hero-score">'+(total!==null?total.toFixed(2):'—')+'</div>'+
+    '<div class="hero-detail">배근력 '+fmt(last.strScore)+' + 좌전굴 '+fmt(last.flexScore)+
+    ' + 멀리뛰기 '+fmt(last.jumpScore)+' + 달리기 '+fmt(last.runScore)+'</div>'+
+    (acad>0?'<div class="hero-acad">📚 내신환산 '+acad.toFixed(2)+'</div>':'')+
+    '</div></div>';
 }
 
-/* ═══════════════════════════════════════
-   Render: Official Card
-   ═══════════════════════════════════════ */
+/* ── Official Card ── */
 function renderOfficialCard(records,el){
   var offList=records.filter(function(x){return isOfficial(x.type);});
   if(!offList.length){el.innerHTML='';return;}
@@ -291,67 +266,52 @@ function renderOfficialCard(records,el){
   var typeLabel=last.type||'공식테스트';
   var items='';
   EVENTS.forEach(function(ev){
-    var raw=last[ev.key];
-    var sc=last[getScoreKey(ev.key)];
+    var raw=last[ev.key], sc=last[getScoreKey(ev.key)];
     items+=
-      '<div class="og-item">'+
-        '<div class="og-icon"><img src="'+LOGO_SRC+'" alt=""></div>'+
-        '<div class="og-label">'+ev.label+'</div>'+
-        '<div class="og-value">'+(raw!==null?raw:'—')+'<span class="og-unit">'+ev.unit+'</span></div>'+
-        (sc!==null?'<div class="og-score">환산 '+sc.toFixed(2)+'</div>':'')+
-      '</div>';
+      '<div class="og-item"><div class="og-icon"><img src="'+LOGO_SRC+'" alt=""></div>'+
+      '<div class="og-label">'+ev.label+'</div>'+
+      '<div class="og-value">'+(raw!==null?raw:'—')+'<span class="og-unit">'+ev.unit+'</span></div>'+
+      (sc!==null?'<div class="og-score">환산 '+sc.toFixed(2)+'</div>':'')+'</div>';
   });
   var acad=last.acad;
   el.innerHTML=
-    '<div class="official-card">'+
-      '<div class="official-card-header">'+
-        '<div><span class="oc-trophy">🏆</span><span class="oc-title">'+typeLabel+'</span></div>'+
-        '<span class="oc-date">'+last.date+'</span></div>'+
-      '<div class="official-body">'+
-        '<div class="official-grid">'+items+'</div>'+
-        '<div class="official-total-row">'+
-          (acad!==null?'<span class="official-total-label">내신 '+acad.toFixed(2)+'</span><span style="color:var(--sub)">|</span>':'')+
-          '<span class="official-total-label">총점</span>'+
-          '<span class="official-total-val">'+(last.total!==null?last.total.toFixed(2):'—')+'</span>'+
-        '</div></div></div>';
+    '<div class="official-card"><div class="official-card-header">'+
+    '<div><span class="oc-trophy">🏆</span><span class="oc-title">'+typeLabel+'</span></div>'+
+    '<span class="oc-date">'+last.date+'</span></div>'+
+    '<div class="official-body"><div class="official-grid">'+items+'</div>'+
+    '<div class="official-total-row">'+
+    (acad!==null?'<span class="official-total-label">내신 '+acad.toFixed(2)+'</span><span style="color:var(--sub)">|</span>':'')+
+    '<span class="official-total-label">총점</span>'+
+    '<span class="official-total-val">'+(last.total!==null?last.total.toFixed(2):'—')+'</span>'+
+    '</div></div></div>';
 }
 
-/* ═══════════════════════════════════════
-   Render: Chart Tab
-   ═══════════════════════════════════════ */
+/* ── Chart Tab ── */
 var _charts={};
 
 function renderChartTab(records,el){
   el.innerHTML='';
   EVENTS.forEach(function(ev){
-    var hasData=records.some(function(r){return r[ev.key]!==null;});
-    if(!hasData)return;
+    if(!records.some(function(r){return r[ev.key]!==null;}))return;
     var scoreKey=getScoreKey(ev.key);
     var withScore=records.filter(function(r){return r[scoreKey]!==null;});
     var badge=withScore.length?withScore[withScore.length-1][scoreKey].toFixed(2)+'점':'—';
-
     var card=document.createElement('div');
     card.className='event-card';
     card.innerHTML=
       '<div class="event-header" onclick="toggleCard(\''+ev.key+'\')">'+
-        '<div class="ev-title-wrap">'+
-          '<img class="ev-logo" src="'+LOGO_SRC+'" alt="" onerror="this.style.display=\'none\'">'+
-          '<span class="event-title">'+ev.label+' <small>('+ev.unit+')</small></span>'+
-        '</div>'+
-        '<span class="event-badge">'+badge+'</span>'+
-      '</div>'+
+      '<div class="ev-title-wrap">'+
+      '<img class="ev-logo" src="'+LOGO_SRC+'" alt="" onerror="this.style.display=\'none\'">'+
+      '<span class="event-title">'+ev.label+' <small>('+ev.unit+')</small></span></div>'+
+      '<span class="event-badge">'+badge+'</span></div>'+
       '<div class="event-body" id="body-'+ev.key+'">'+
-        '<div class="chart-type-btns">'+
-          '<button class="chart-type-btn active" id="btn-line-'+ev.key+
-            '" onclick="switchChartType(\''+ev.key+'\',\'line\',event)">꺾은선</button>'+
-          '<button class="chart-type-btn" id="btn-bar-'+ev.key+
-            '" onclick="switchChartType(\''+ev.key+'\',\'bar\',event)">막대</button>'+
-        '</div>'+
-        '<div class="chart-wrap"><canvas id="chart-'+ev.key+'"></canvas></div>'+
-        '<div class="progress-wrap" id="prog-'+ev.key+'"></div>'+
-        '<div class="detail-toggle" onclick="toggleDetail(\''+ev.key+'\')">▼ 상세 기록 보기</div>'+
-        '<div id="detail-'+ev.key+'" style="display:none;"></div>'+
-      '</div>';
+      '<div class="chart-type-btns">'+
+      '<button class="chart-type-btn active" id="btn-line-'+ev.key+'" onclick="switchChartType(\''+ev.key+'\',\'line\',event)">꺾은선</button>'+
+      '<button class="chart-type-btn" id="btn-bar-'+ev.key+'" onclick="switchChartType(\''+ev.key+'\',\'bar\',event)">막대</button></div>'+
+      '<div class="chart-wrap"><canvas id="chart-'+ev.key+'"></canvas></div>'+
+      '<div class="progress-wrap" id="prog-'+ev.key+'"></div>'+
+      '<div class="detail-toggle" onclick="toggleDetail(\''+ev.key+'\')">▼ 상세 기록 보기</div>'+
+      '<div id="detail-'+ev.key+'" style="display:none;"></div></div>';
     el.appendChild(card);
     setTimeout(function(){buildChart(ev,records,'line');},60);
     buildProgress(ev,records);
@@ -386,15 +346,13 @@ function buildChart(ev,records,type){
       pointStyle:pointStyles,pointBorderWidth:2,fill:true,borderWidth:3});
   }
   _charts[ev.key]=new Chart(canvas,{
-    type:type,
-    data:{labels:labels,datasets:datasets},
+    type:type,data:{labels:labels,datasets:datasets},
     options:{
       responsive:true,maintainAspectRatio:false,
       interaction:{intersect:false,mode:'index'},
       scales:{
         x:{grid:{display:false},ticks:{color:'#8C7E6F',font:{size:11,weight:'600'}}},
-        y:{position:'left',
-          title:{display:true,text:ev.unit,color:'#8C7E6F',font:{weight:'600'}},
+        y:{position:'left',title:{display:true,text:ev.unit,color:'#8C7E6F',font:{weight:'600'}},
           grid:{color:'rgba(226,116,34,.08)'},ticks:{color:'#8C7E6F',font:{size:11}},beginAtZero:false}
       },
       plugins:{
@@ -467,9 +425,7 @@ function switchChartType(key,type,e){
 function toggleCard(key){var b=document.getElementById('body-'+key);if(b)b.style.display=b.style.display==='none'?'':'none';}
 function toggleDetail(key){var el=document.getElementById('detail-'+key);if(el)el.style.display=el.style.display==='none'?'':'none';}
 
-/* ═══════════════════════════════════════
-   Render: Table Tab (newest first)
-   ═══════════════════════════════════════ */
+/* ── Table Tab (newest first) ── */
 function renderTableTab(records,el){
   var sorted=descSort(records);
   el.innerHTML=
@@ -494,57 +450,58 @@ function renderTableTab(records,el){
     }).join('')+'</tbody></table></div>';
 }
 
-/* ═══════════════════════════════════════
-   Render: Calculator Tab
-   ═══════════════════════════════════════ */
+/* ── Calculator Tab ── */
+var _calcGender='남';
+var _calcInited=false;
+
 function renderCalcTab(records,el){
   var r=records[0];
   var defaultGender=r?r.gender:'남';
-  var defaultAcad=r&&r.acad!==null?r.acad:0;
+  _calcGender=defaultGender==='여'?'여':'남';
+  var defaultAcad=(r&&r.acad!==null)?r.acad:'';
 
   el.innerHTML=
     '<div class="calc-card">'+
-      '<div class="calc-title"><img src="'+LOGO_SRC+'" alt="">점수 계산기</div>'+
-      '<div class="calc-gender">'+
-        '<button id="calc-g-m" class="'+(defaultGender!=='여'?'active':'')+'" onclick="setCalcGender(\'남\')">남자</button>'+
-        '<button id="calc-g-f" class="'+(defaultGender==='여'?'active':'')+'" onclick="setCalcGender(\'여\')">여자</button>'+
-      '</div>'+
-      '<div class="calc-row"><label>내신환산</label>'+
-        '<input type="number" id="calc-acad" value="'+(defaultAcad||'')+'" step="0.01" oninput="updateCalc()">'+
-        '<span class="calc-unit">점</span><span class="calc-score" id="calc-acad-sc"></span></div>'+
-      '<div class="calc-row"><label>배근력</label>'+
-        '<input type="number" id="calc-str" step="0.5" placeholder="kg" oninput="updateCalc()">'+
-        '<span class="calc-unit">kg</span><span class="calc-score" id="calc-str-sc"></span></div>'+
-      '<div class="calc-row"><label>좌전굴</label>'+
-        '<input type="number" id="calc-flex" step="0.1" placeholder="cm" oninput="updateCalc()">'+
-        '<span class="calc-unit">cm</span><span class="calc-score" id="calc-flex-sc"></span></div>'+
-      '<div class="calc-row"><label>멀리뛰기</label>'+
-        '<input type="number" id="calc-jump" step="1" placeholder="cm" oninput="updateCalc()">'+
-        '<span class="calc-unit">cm</span><span class="calc-score" id="calc-jump-sc"></span></div>'+
-      '<div class="calc-row"><label>달리기</label>'+
-        '<input type="number" id="calc-run" step="0.01" placeholder="초" oninput="updateCalc()">'+
-        '<span class="calc-unit">초</span><span class="calc-score" id="calc-run-sc"></span></div>'+
-      '<div class="calc-result">'+
-        '<div class="calc-result-label">예상 총점</div>'+
-        '<div class="calc-result-score" id="calc-total">—</div>'+
-        '<div class="calc-result-detail" id="calc-detail"></div>'+
-      '</div>'+
-      '<button class="calc-reset" onclick="resetCalc()">초기화</button>'+
-      '<div class="calc-ref" id="calc-ref"></div>'+
-    '</div>';
+    '<div class="calc-title"><img src="'+LOGO_SRC+'" alt="">점수 계산기</div>'+
+    '<div class="calc-gender">'+
+    '<button id="calc-g-m" class="'+(_calcGender==='남'?'active':'')+'" onclick="setCalcGender(\'남\')">남자</button>'+
+    '<button id="calc-g-f" class="'+(_calcGender==='여'?'active':'')+'" onclick="setCalcGender(\'여\')">여자</button></div>'+
+    '<div class="calc-row"><label>내신환산</label>'+
+    '<input type="number" id="calc-acad" value="'+defaultAcad+'" step="0.01" oninput="updateCalc()">'+
+    '<span class="calc-unit">점</span><span class="calc-score" id="calc-acad-sc"></span></div>'+
+    '<div class="calc-row"><label>배근력</label>'+
+    '<input type="number" id="calc-str" step="0.5" placeholder="kg" oninput="updateCalc()">'+
+    '<span class="calc-unit">kg</span><span class="calc-score" id="calc-str-sc"></span></div>'+
+    '<div class="calc-row"><label>좌전굴</label>'+
+    '<input type="number" id="calc-flex" step="0.1" placeholder="cm" oninput="updateCalc()">'+
+    '<span class="calc-unit">cm</span><span class="calc-score" id="calc-flex-sc"></span></div>'+
+    '<div class="calc-row"><label>멀리뛰기</label>'+
+    '<input type="number" id="calc-jump" step="1" placeholder="cm" oninput="updateCalc()">'+
+    '<span class="calc-unit">cm</span><span class="calc-score" id="calc-jump-sc"></span></div>'+
+    '<div class="calc-row"><label>달리기</label>'+
+    '<input type="number" id="calc-run" step="0.01" placeholder="초" oninput="updateCalc()">'+
+    '<span class="calc-unit">초</span><span class="calc-score" id="calc-run-sc"></span></div>'+
+    '<div class="calc-result">'+
+    '<div class="calc-result-label">예상 총점</div>'+
+    '<div class="calc-result-score" id="calc-total">—</div>'+
+    '<div class="calc-result-detail" id="calc-detail">종목 기록을 입력해주세요</div></div>'+
+    '<button class="calc-reset" onclick="resetCalc()">초기화</button>'+
+    '<div class="calc-ref" id="calc-ref"></div></div>';
 
+  _calcInited=true;
   updateCalcRef();
-  updateCalc();
 }
 
-var _calcGender='남';
 function setCalcGender(g){
   _calcGender=g;
-  document.getElementById('calc-g-m').classList.toggle('active',g==='남');
-  document.getElementById('calc-g-f').classList.toggle('active',g==='여');
+  var mBtn=document.getElementById('calc-g-m');
+  var fBtn=document.getElementById('calc-g-f');
+  if(mBtn)mBtn.classList.toggle('active',g==='남');
+  if(fBtn)fBtn.classList.toggle('active',g==='여');
   updateCalcRef();
   updateCalc();
 }
+
 function updateCalcRef(){
   var s=STD[_calcGender];
   var el=document.getElementById('calc-ref');
@@ -556,28 +513,39 @@ function updateCalcRef(){
     '멀리뛰기: '+s.jump.max+'cm↑=100점, '+s.jump.min+'cm↓=50점<br>'+
     '달리기: '+s.run.max+'초↓=100점, '+s.run.min+'초↑=50점';
 }
+
 function updateCalc(){
-  var acad=parseFloat(document.getElementById('calc-acad').value)||0;
-  var strV=parseFloat(document.getElementById('calc-str').value);
-  var flexV=parseFloat(document.getElementById('calc-flex').value);
-  var jumpV=parseFloat(document.getElementById('calc-jump').value);
-  var runV=parseFloat(document.getElementById('calc-run').value);
+  if(!_calcInited)return;
+  var acadEl=document.getElementById('calc-acad');
+  var strEl=document.getElementById('calc-str');
+  var flexEl=document.getElementById('calc-flex');
+  var jumpEl=document.getElementById('calc-jump');
+  var runEl=document.getElementById('calc-run');
+  if(!acadEl||!strEl||!flexEl||!jumpEl||!runEl)return;
+
+  var acad=parseFloat(acadEl.value)||0;
+  var strV=parseFloat(strEl.value);
+  var flexV=parseFloat(flexEl.value);
+  var jumpV=parseFloat(jumpEl.value);
+  var runV=parseFloat(runEl.value);
 
   var strSc=isNaN(strV)?null:calcScore('strength',strV,_calcGender);
   var flexSc=isNaN(flexV)?null:calcScore('flex',flexV,_calcGender);
   var jumpSc=isNaN(jumpV)?null:calcScore('jump',jumpV,_calcGender);
   var runSc=isNaN(runV)?null:calcScore('run',runV,_calcGender);
 
-  document.getElementById('calc-acad-sc').textContent=acad?acad.toFixed(2)+'점':'';
-  document.getElementById('calc-str-sc').textContent=strSc!==null?strSc.toFixed(2)+'점':'';
-  document.getElementById('calc-flex-sc').textContent=flexSc!==null?flexSc.toFixed(2)+'점':'';
-  document.getElementById('calc-jump-sc').textContent=jumpSc!==null?jumpSc.toFixed(2)+'점':'';
-  document.getElementById('calc-run-sc').textContent=runSc!==null?runSc.toFixed(2)+'점':'';
+  var el;
+  el=document.getElementById('calc-acad-sc');if(el)el.textContent=acad?acad.toFixed(2)+'점':'';
+  el=document.getElementById('calc-str-sc');if(el)el.textContent=strSc!==null?strSc.toFixed(2)+'점':'';
+  el=document.getElementById('calc-flex-sc');if(el)el.textContent=flexSc!==null?flexSc.toFixed(2)+'점':'';
+  el=document.getElementById('calc-jump-sc');if(el)el.textContent=jumpSc!==null?jumpSc.toFixed(2)+'점':'';
+  el=document.getElementById('calc-run-sc');if(el)el.textContent=runSc!==null?runSc.toFixed(2)+'점':'';
 
   var all=[strSc,flexSc,jumpSc,runSc];
   var filled=all.filter(function(v){return v!==null;});
   var totalEl=document.getElementById('calc-total');
   var detailEl=document.getElementById('calc-detail');
+  if(!totalEl||!detailEl)return;
 
   if(filled.length===4){
     var sum=filled.reduce(function(a,b){return a+b;},0);
@@ -591,16 +559,15 @@ function updateCalc(){
     detailEl.textContent=filled.length>0?'모든 종목을 입력하면 총점이 계산됩니다':'종목 기록을 입력해주세요';
   }
 }
+
 function resetCalc(){
   ['calc-str','calc-flex','calc-jump','calc-run'].forEach(function(id){
-    document.getElementById(id).value='';
+    var el=document.getElementById(id);if(el)el.value='';
   });
   updateCalc();
 }
 
-/* ═══════════════════════════════════════
-   Tab Switching
-   ═══════════════════════════════════════ */
+/* ── Tab Switching ── */
 function showTab(tab){
   document.getElementById('content-chart').style.display=tab==='chart'?'':'none';
   document.getElementById('content-table').style.display=tab==='table'?'':'none';
@@ -610,9 +577,7 @@ function showTab(tab){
   document.getElementById('tab-calc').classList.toggle('active',tab==='calc');
 }
 
-/* ═══════════════════════════════════════
-   Main
-   ═══════════════════════════════════════ */
+/* ── Main ── */
 (async function(){
   var app=document.getElementById('app');
   var name=new URLSearchParams(location.search).get('name')||'';
@@ -629,8 +594,8 @@ function showTab(tab){
       app.innerHTML='<div class="error">❌ "'+name+'" 학생 데이터를 찾을 수 없습니다.</div>';return;
     }
     window._RECORDS=records;
-    _calcGender=records[0].gender||'남';
 
+    /* 1) 빈 컨테이너 생성 */
     var hero=document.createElement('div');
     var offCard=document.createElement('div');
     var tabWrap=document.createElement('div');
@@ -648,15 +613,22 @@ function showTab(tab){
     calcContent.id='content-calc';calcContent.className='content-area';
     calcContent.style.display='none';
 
+    /* 2) DOM에 먼저 추가 */
+    app.innerHTML='';
+    app.appendChild(hero);
+    app.appendChild(offCard);
+    app.appendChild(tabWrap);
+    app.appendChild(chartContent);
+    app.appendChild(tableContent);
+    app.appendChild(calcContent);
+
+    /* 3) DOM 추가 후 렌더링 (getElementById가 작동하도록) */
     renderHero(records,hero);
     renderOfficialCard(records,offCard);
     renderChartTab(records,chartContent);
     renderTableTab(records,tableContent);
     renderCalcTab(records,calcContent);
 
-    app.innerHTML='';
-    [hero,offCard,tabWrap,chartContent,tableContent,calcContent]
-      .forEach(function(e){app.appendChild(e);});
   }catch(err){
     app.innerHTML='<div class="error">❌ 로드 실패: '+err.message+'</div>';
   }
