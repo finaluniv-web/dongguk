@@ -579,9 +579,8 @@ function init(){
   }).catch(function(e){console.error(e);document.getElementById('app').innerHTML='<div class="error">⚠️ 데이터를 불러올 수 없습니다.<br>새로고침 해주세요.</div>';});
 }
 init();
-init();
 
-/* ★ 부모 iframe 전체 스크롤용 — 높이 전달 */
+/* ── iframe 높이 부모에 전달 ── */
 function notifyHeight(){
   var h=document.body.scrollHeight;
   window.parent.postMessage({type:'resize',height:h},'*');
@@ -598,6 +597,7 @@ if(window.parent!==window){
   document.body.style.overflow='hidden';
 }
 
-
+</script>
 </body>
 </html>
+ 
